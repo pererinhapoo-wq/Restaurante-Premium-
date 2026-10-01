@@ -1,0 +1,6 @@
+{
+  "name": "VITRAE — Clínica Integrada",
+  "description": "Experiência de cuidado integrada, humana e precisa, unindo arquitetura contemporânea, medicina preventiva e bem-estar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
