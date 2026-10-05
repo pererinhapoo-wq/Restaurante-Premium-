@@ -13,6 +13,7 @@ export const InitialAssessmentForm: React.FC = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [protocolCode, setProtocolCode] = useState('');
+  const [formError, setFormError] = useState('');
 
   const quickObjectives = [
     'Fadiga e disposição',
@@ -24,10 +25,11 @@ export const InitialAssessmentForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.nome || !formData.telefone || !formData.email) {
-      alert('Por favor, preencha os campos obrigatórios (Nome, Telefone e E-mail).');
+    if (!formData.nome.trim() || !formData.telefone.trim() || !formData.email.trim()) {
+      setFormError('Por favor, preencha os campos obrigatórios (Nome, Telefone e E-mail).');
       return;
     }
+    setFormError('');
 
     const randomProtocol = `VIT-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
     setProtocolCode(randomProtocol);
@@ -281,6 +283,13 @@ export const InitialAssessmentForm: React.FC = () => {
                     })}
                   </div>
                 </div>
+
+                {/* Error message */}
+                {formError && (
+                  <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded">
+                    {formError}
+                  </div>
+                )}
 
                 {/* Submit button */}
                 <div className="pt-3">

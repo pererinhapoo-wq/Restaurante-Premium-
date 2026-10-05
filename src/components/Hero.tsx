@@ -112,6 +112,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onOpenGuide }) => {
                   alt="Interior contemporâneo da clínica VITRAE com iluminação natural e acabamentos em travertino e cobre"
                   className="w-full h-[340px] sm:h-[420px] object-cover transition-transform duration-700 hover:scale-[1.02]"
                   referrerPolicy="no-referrer"
+                  loading="eager"
+                  decoding="async"
                 />
 
                 {/* Subtle gradient contrast scrim for bottom overlay */}

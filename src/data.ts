@@ -1,11 +1,15 @@
 import { Specialty, Doctor, Environment, Article } from './types';
+import heroImg from './assets/images/vitrae_hero_architecture_1790827939043.jpg';
+import consultorioImg from './assets/images/vitrae_ambience_consultorio_1790827951139.jpg';
+import loungeImg from './assets/images/vitrae_ambience_lounge_1790827963789.jpg';
+import wellnessImg from './assets/images/vitrae_wellness_rehab_1790827972018.jpg';
 
 // Curated image assets generated for VITRAE
 export const clinicImages = {
-  hero: '/src/assets/images/vitrae_hero_architecture_1790827939043.jpg',
-  consultorio: '/src/assets/images/vitrae_ambience_consultorio_1790827951139.jpg',
-  lounge: '/src/assets/images/vitrae_ambience_lounge_1790827963789.jpg',
-  wellness: '/src/assets/images/vitrae_wellness_rehab_1790827972018.jpg',
+  hero: heroImg,
+  consultorio: consultorioImg,
+  lounge: loungeImg,
+  wellness: wellnessImg,
 };
 
 export const specialtiesData: Specialty[] = [

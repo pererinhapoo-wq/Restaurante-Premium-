@@ -25,6 +25,7 @@ export const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
 
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
   const [confirmationCode, setConfirmationCode] = useState('');
+  const [bookingError, setBookingError] = useState('');
 
   // Sincroniza se as props mudarem
   useEffect(() => {
@@ -73,10 +74,11 @@ export const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
 
   const handleConfirmBooking = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!patientName || !patientPhone) {
-      alert('Por favor, informe seu nome e telefone para contato.');
+    if (!patientName.trim() || !patientPhone.trim()) {
+      setBookingError('Por favor, informe seu nome e telefone para contato.');
       return;
     }
+    setBookingError('');
     const code = `VTR-${Math.floor(100000 + Math.random() * 900000)}`;
     setConfirmationCode(code);
     setBookingConfirmed(true);
@@ -84,6 +86,7 @@ export const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
 
   const handleReset = () => {
     setBookingConfirmed(false);
+    setBookingError('');
     setPatientName('');
     setPatientPhone('');
     setPatientEmail('');
@@ -409,6 +412,12 @@ export const AppointmentScheduler: React.FC<AppointmentSchedulerProps> = ({
                   onChange={(e) => setPatientEmail(e.target.value)}
                   className="w-full px-3.5 py-2.5 bg-white border border-[#182B2A]/15 rounded text-xs text-[#122826] focus:outline-none focus:border-[#C27854]"
                 />
+
+                {bookingError && (
+                  <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded">
+                    {bookingError}
+                  </div>
+                )}
 
                 <div className="pt-2">
                   <button

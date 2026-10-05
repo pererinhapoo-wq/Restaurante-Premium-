@@ -48,6 +48,8 @@ export const ClinicEnvironments: React.FC = () => {
                     alt={item.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                   />
                   
                   {/* Subtle contrast gradient */}
@@ -118,6 +120,7 @@ export const ClinicEnvironments: React.FC = () => {
                 alt={selectedEnvironment.name}
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#122826]/90 via-transparent to-transparent" />
               
